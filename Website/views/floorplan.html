@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Floorplan with Microcontrollers
+{% endblock %}
+
+{% block sidebar %}
+    <!-- Can add content to the sidebar here (will only appear on this view) -->
+{% endblock %}
+
+{% block content %}
+
+    <div id="floorplan-content" class="content">
+        <h1 class="header">Floorplan with Microcontrollers</h1>
+
+        <div id="color-circles" class="color-circle-container">
+            <div class="color-circle-info">
+                <a class="color-circle color-circle-lowmoisture"
+                   style="background-color: #F4A460; border-color: #F4A460"></a>
+                <span>Dry</span>
+            </div>
+            <div class="color-circle-info">
+                <a class="color-circle color-circle-mediumlowmoisture"
+                   style="background-color: yellow; border-color: yellow"></a>
+                <span>Slightly Dry</span>
+            </div>
+            <div class="color-circle-info">
+                <a class="color-circle color-circle-mediummoisture"
+                   style="background-color: green; border-color: green"></a>
+                <span>Optimal Moisture</span>
+            </div>
+            <div class="color-circle-info">
+                <a class="color-circle color-circle-mediumhighmoisture"
+                   style="background-color: #676ECE; border-color: #676ECE"></a>
+                <span>Slightly Wet</span>
+            </div>
+            <div class="color-circle-info">
+                <a class="color-circle color-circle-highmoisture"
+                   style="background-color: #2B287E; border-color: #2B287E"></a>
+                <span>Drowning</span>
+            </div>
+        </div>
+        <div class="floorplan-container">
+            <img src="{{ url_for('static', filename='images/floorplan.png') }}" width="100%" height="auto"
+                 alt="Floorplan Image">
+            <a class="clickable-box" style="top: 24.7%; left: 23.4%; width: 1.5%; height: 11%;"
+               href="/microcontroller/1"
+               data-microcontroller-id="1">Microcontroller 1</a>
+            <a class="clickable-box" style="top: 38.5%; left: 74%; width: 1.5%; height: 11%;" href="/microcontroller/2"
+               data-microcontroller-id="2">Microcontroller 2</a>
+        </div>
+
+
+        <map name="microcontrollerMap">
+            <area shape="rect" coords="x1,y1,x2,y2" href="/microcontroller/1" alt="Microcontroller 1">
+            <area shape="rect" coords="x3,y3,x4,y4" href="/microcontroller/2" alt="Microcontroller 2">
+        </map>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+{% endblock %}

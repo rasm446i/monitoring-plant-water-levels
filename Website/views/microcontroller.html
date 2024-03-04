@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}
+    {{ microcontroller.name }}
+{% endblock %}
+
+{% block content %}
+    <body class="microcontroller-bg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <div id="microcontroller-content" class="content">
+        <h1>{{ microcontroller.name }}</h1>
+        <p>{{ microcontroller.details }}</p>
+
+        <div id="grafana-container" class="grafana-container"></div>
+
+        <iframe src="{{ microcontroller.grafana_link }}" width="600" height="500" frameborder="0"></iframe>
+
+    </div>
+    </body>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+{% endblock %}

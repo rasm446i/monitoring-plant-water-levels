@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Default Title{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+
+</head>
+<body>
+<div class="sidebar">
+    <div class="sidebar-top">
+        <img src="{{ url_for('static', filename='images/wexologo.png') }}" alt="WEXO Logo">
+    </div>
+    <div class="sidebar-icons">
+        <a href="/" class="sidebar-icon {% if active_page == 'home' %}active{% endif %}">
+            <img src="/static/images/home.png" alt="Home">
+        </a>
+        <a href="/floorplan" class="sidebar-icon {% if active_page == 'floorplan' %}active{% endif %}">
+            <img src="/static/images/floorplanIcon.png" alt="Floorplan">
+        </a>
+        <a href="/settings" class="sidebar-icon {% if active_page == 'settings' %}active{% endif %}">
+            <img src="/static/images/settings.png" alt="Settings">
+        </a>
+    </div>
+    {% block sidebar %}{% endblock %}
+</div>
+
+<div id="content">
+    {% block content %}{% endblock %}
+</div>
+

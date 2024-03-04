@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+   <div id="dashboard-container">
+    <div id="dashboard-content">
+        <div class="status-box" id="temp-box">
+            <div class="status-header">Temperatur</div>
+            <div class="status-value">22°</div>
+        </div>
+        <div class="status-box" id="alert-box">
+            <div class="status-header">Alert</div>
+            <div class="status-value">Zone B overvandet!</div>
+        </div>
+        <div class="status-box" id="humidity-box">
+            <div class="status-header">Luftfugtighed</div>
+            <div class="status-value">40.8%</div>
+        </div>
+    </div>
+    </div>
+{% endblock %}
